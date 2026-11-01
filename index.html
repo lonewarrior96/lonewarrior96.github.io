@@ -76,6 +76,9 @@ footer { border-top: 1px solid var(--line); padding: 22px 0 40px; font-family: v
   nav { gap: 14px; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+.brand .caret { display: inline-block; width: .6em; height: 1.05em; margin-left: 3px; vertical-align: -0.15em; background: #fff; animation: blink 1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .brand .caret { animation: none; opacity: .8; } }
 </style>
 </head>
 <body>
@@ -88,7 +91,7 @@ footer { border-top: 1px solid var(--line); padding: 22px 0 40px; font-family: v
         <circle cx="20" cy="20" r="18.5" fill="none" stroke="#fff" stroke-width="1.6"/>
         <polygon id="star" fill="#fff"/>
       </svg>
-      <div class="name">VAIBHAV</div>
+      <div class="name" aria-label="Vaibhav"><span class="typed" aria-hidden="true">VAIBHAV</span><span class="caret" aria-hidden="true"></span></div>
     </div>
     <nav><a href="#work">Work</a><a href="#notes">About</a><a href="mailto:vaibhavda@corrobo.ai">Contact</a></nav>
   </header>
@@ -165,6 +168,13 @@ footer { border-top: 1px solid var(--line); padding: 22px 0 40px; font-family: v
     pts.push((20 + r * Math.cos(a)).toFixed(2) + ',' + (20 + r * Math.sin(a)).toFixed(2));
   }
   document.getElementById('star').setAttribute('points', pts.join(' '));
+
+  // name types itself once, then the caret keeps blinking
+  const typed = document.querySelector('.typed');
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const word = typed.textContent; typed.textContent = '';
+    [...word].forEach((ch, i) => setTimeout(() => { typed.textContent += ch; }, 350 + i * 130));
+  }
 
   // chips filter the project cards
   const chips = document.querySelectorAll('.tags span'), cardsEl = document.querySelectorAll('.card');
