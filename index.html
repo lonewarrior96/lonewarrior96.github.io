@@ -4,6 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Vaibhav</title>
+<meta property="og:title" content="Vaibhav — AI engineer, Bangalore">
+<meta property="og:description" content="I build AI for Indian banking: compliance, fraud-check voice calls, and tooling for AI agents.">
+<meta property="og:image" content="https://lonewarrior96.github.io/media/og.jpg">
+<meta property="og:url" content="https://lonewarrior96.github.io/">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="description" content="Vaibhav: AI engineer in Bangalore building document intelligence, fraud-check voice agents and agent tooling for Indian banking.">
 <style>
 :root {
@@ -80,6 +85,21 @@ canvas#bg { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; di
   .tags { position: static; display: flex; width: auto; padding: 0 24px 16px; }
   .list { position: static; width: auto; padding: 0 24px 24px; overflow: visible; }
 }
+
+.tags span { pointer-events: auto; cursor: pointer; transition: background 200ms, color 200ms; }
+.tags span:hover { background: #2a2a2a; }
+.tags span.on:hover { background: #e6e6e6; }
+.card[hidden] { display: none !important; }
+.proof { margin-top: 8px; font-size: 11.5px; color: var(--accent); text-transform: none; letter-spacing: 0; }
+.about { background: rgba(0, 0, 0, 0.62); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); padding: 22px 24px 20px; border: 1px solid var(--line); border-radius: 3px; gap: 1.25em; max-height: calc(100vh - 140px); overflow-y: auto; pointer-events: auto; scrollbar-width: none; }
+.about .pitch { text-transform: none; font-size: 19px; line-height: 1.3; color: #fff; letter-spacing: 0; text-align: left; margin: 0; font-family: inherit; font-weight: normal; }
+.about p, .about li { text-transform: none; letter-spacing: 0; font-size: 13px; line-height: 1.5; text-align: left; }
+.about p { margin-bottom: .6em; }
+.about h2 { margin-bottom: .7em; }
+@media (max-width: 760px) {
+  .about { margin: 92px 16px 16px; padding: 20px; max-height: none; overflow: visible; }
+  .tags { padding: 0 16px 16px; } .list { padding: 0 16px 24px; }
+}
 </style>
 </head>
 <body>
@@ -97,38 +117,42 @@ canvas#bg { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; di
   <div class="counter blend" title="Products shipped">03</div>
 
   <div class="tags blend">
-    <span class="on">All</span><span>Document AI</span><span>Voice agents</span><span>Fine-tuning</span><span>Fraud</span>
-    <span>Compliance</span><span>Evals</span><span>AI agents</span><span>Banking</span><span>India</span>
+    <span class="on" data-f="all">All</span><span data-f="docai">Document AI</span><span data-f="voice">Voice agents</span><span data-f="ft">Fine-tuning</span><span data-f="fraud">Fraud</span>
+    <span data-f="comp">Compliance</span><span data-f="evals">Evals</span><span data-f="agents">AI agents</span><span data-f="bank">Banking</span><span data-f="india">India</span>
   </div>
 
   <div class="list">
-    <div class="card">
+    <div class="card" data-t="docai ft comp evals bank india agents">
       <a class="hit" href="https://corrobo.ai/" target="_blank" rel="noopener">
         <div class="thumb"><img src="media/corrobo.jpg" alt="Corrobo home page" loading="lazy"></div>
         <div class="meta"><div>Corrobo
 compliance AI</div><div>AML investigation
 for banks</div></div>
+        <div class="proof">Own 8B vision model · 56 document types · 78% on sealed real docs</div>
       </a>
     </div>
-    <div class="card">
+    <div class="card" data-t="voice fraud comp bank india">
       <a class="hit" href="https://skimstone.pages.dev" target="_blank" rel="noopener">
         <div class="thumb"><video src="media/skimstone.mp4" poster="media/skimstone-frame.jpg" autoplay muted loop playsinline preload="metadata"></video></div>
         <div class="meta"><div>Skimstone
 voice agent</div><div>Fraud-check calls
 built on Bolna</div></div>
+        <div class="proof">Live on Bolna · Hindi, Hinglish, English · never asks for an OTP</div>
       </a>
     </div>
-    <div class="card">
+    <div class="card" data-t="agents evals">
       <a class="hit" href="https://earlyman.tail27c668.ts.net" target="_blank" rel="noopener">
         <div class="thumb"><img src="media/earlyman.jpg" alt="Earlyman home page" loading="lazy"></div>
         <div class="meta"><div>Earlyman
 agent tracing</div><div>Cost and failures
 per pull request</div></div>
+        <div class="proof">Runs locally · prompts never stored · cost per pull request</div>
       </a>
     </div>
   </div>
 
-  <div class="about blend">
+  <div class="about">
+    <p class="pitch">I build AI for Indian banking: compliance, fraud-check calls, and the agents that write my code.</p>
     <section>
       <h2>[about]</h2>
       <p>I'm Vaibhav, 29, from Bangalore. Engineering at BMSCE, then a master's in AI at NUS as an OCBC AI Scholar, one of 4 from about 2,000. 2.5 years at OCBC Bank.</p>
@@ -136,7 +160,6 @@ per pull request</div></div>
     <section>
       <h2>[building]</h2>
       <p>AI for the parts of banking that still run on people reading paper: loan documents, name checks, and the call to a customer when a payment looks wrong.</p>
-      <ul><li>Corrobo: document AI on my own model</li><li>Skimstone: fraud-check voice calls</li><li>Earlyman: tracing for AI agents</li></ul>
     </section>
     <section>
       <h2>[how i work]</h2>
@@ -164,6 +187,14 @@ per pull request</div></div>
     pts.push((20 + r * Math.cos(a)).toFixed(2) + ',' + (20 + r * Math.sin(a)).toFixed(2));
   }
   document.getElementById('star').setAttribute('points', pts.join(' '));
+
+  // chips filter the project cards
+  const chips = document.querySelectorAll('.tags span'), cardsEl = document.querySelectorAll('.card');
+  chips.forEach(ch => ch.addEventListener('click', () => {
+    chips.forEach(c => c.classList.toggle('on', c === ch));
+    const f = ch.dataset.f;
+    cardsEl.forEach(c => { c.hidden = f !== 'all' && !c.dataset.t.split(' ').includes(f); });
+  }));
 
   const canvas = document.getElementById('bg');
   const isMobile = matchMedia('(pointer: coarse)').matches || innerWidth < 760;
@@ -331,7 +362,8 @@ per pull request</div></div>
   }
 
   // ---------- particle position simulation ----------
-  const SIZE = isMobile ? 128 : 512, COUNT = SIZE * SIZE;
+  const lowPower = matchMedia('(prefers-reduced-motion: reduce)').matches || (navigator.hardwareConcurrency || 8) <= 4;
+  const SIZE = isMobile ? 128 : lowPower ? 256 : 512, COUNT = SIZE * SIZE;
   const origin = new Float32Array(COUNT * 4);
   for (let i = 0; i < COUNT; i++) {
     origin[i * 4] = Math.random() * 2 - 1; origin[i * 4 + 1] = Math.random() * 2 - 1;
