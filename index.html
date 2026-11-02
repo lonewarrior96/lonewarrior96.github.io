@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vaibhav</title>
+<title>Vaibhav - AI engineer, Bangalore</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta property="og:title" content="Vaibhav — AI engineer, Bangalore">
 <meta property="og:description" content="I build AI for Indian banking: compliance, fraud-check voice calls, and tooling for AI agents.">
 <meta property="og:image" content="https://lonewarrior96.github.io/media/og.jpg">
@@ -26,9 +27,9 @@ html { background: #000; scroll-behavior: smooth; }
 body { background: #000; color: var(--text); font-family: var(--sans); font-size: 18px; line-height: 1.55; }
 canvas#bg { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; display: block; opacity: .55; transition: opacity 400ms; pointer-events: none; }
 .ui { position: relative; z-index: 1; padding-left: max(24px, env(safe-area-inset-left, 0px)); padding-right: max(24px, env(safe-area-inset-right, 0px)); }
-.mono, .label, .tags span, nav a, h2 { font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.04em; }
+.mono, .label, .tags button, nav a, h2 { font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.04em; }
 a { color: inherit; }
-a:focus-visible, .tags span:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+a:focus-visible, .tags button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
 .top { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-top: 24px; max-width: 1180px; margin: 0 auto; }
 .brand { display: flex; gap: 14px; align-items: center; }
@@ -43,14 +44,16 @@ nav a:hover { color: #fff; }
 .hero .links { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 26px; font-family: var(--mono); font-size: 14px; }
 .hero .links a { text-underline-offset: 4px; transition: opacity 300ms; }
 .hero .links a:hover { opacity: .7; }
+.hero p.skills { font-family: var(--mono); font-size: 13px; color: var(--muted); margin-top: 18px; letter-spacing: .02em; }
+.hero p.skills span { color: var(--accent); text-transform: uppercase; }
 
 section.work, section.notes, footer { max-width: 1180px; margin: 0 auto; }
 .work-head { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; border-top: 1px solid var(--line); padding-top: 28px; margin-bottom: 8px; }
 h2 { font-size: 14px; font-weight: normal; color: var(--accent); }
 .tags { display: flex; flex-wrap: wrap; gap: 8px; }
-.tags span { background: var(--chip); padding: 7px 12px; font-size: 12.5px; color: #d0d0d0; cursor: pointer; transition: background 200ms, color 200ms; user-select: none; }
-.tags span:hover { background: #2a2a2a; }
-.tags span.on, .tags span.on:hover { background: #e6e6e6; color: #000; }
+.tags button { border: 0; font: inherit; font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.04em; background: var(--chip); padding: 7px 12px; font-size: 12.5px; color: #d0d0d0; cursor: pointer; transition: background 200ms, color 200ms; user-select: none; }
+.tags button:hover { background: #2a2a2a; }
+.tags button.on, .tags button.on:hover { background: #e6e6e6; color: #000; }
 
 .card { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: 40px; align-items: center; padding: 40px 0; border-bottom: 1px solid var(--line); }
 .card[hidden] { display: none !important; }
@@ -99,14 +102,15 @@ footer { border-top: 1px solid var(--line); padding: 22px 0 40px; font-family: v
   <section class="hero">
     <h1>I build AI for Indian banking.</h1>
     <p>Master's in AI at NUS as an OCBC AI Scholar, then 2.5 years at OCBC Bank. Now I build compliance, fraud-check calls and agent tools for Indian lenders, from Bangalore.</p>
-    <div class="links"><a href="mailto:vaibhavda@corrobo.ai">vaibhavda@corrobo.ai</a><a href="https://www.linkedin.com/in/vaibhav-d-a-v/" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/lonewarrior96" target="_blank" rel="noopener">GitHub</a></div>
+    <div class="links"><a href="mailto:vaibhavda@corrobo.ai">vaibhavda@corrobo.ai</a><a href="https://www.linkedin.com/in/vaibhav-d-a-v/" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/lonewarrior96" target="_blank" rel="noopener">GitHub</a><a href="/vaibhav%20data%20science%20resume.pdf" download>Resume (PDF)</a></div>
+    <p class="skills"><span>[skills]</span> Python · LLM fine-tuning (Qwen3-VL) · Document intelligence and OCR · Voice agents (Bolna) · Agent tooling and evals · AML and sanctions screening</p>
   </section>
 
   <section class="work" id="work" aria-labelledby="work-h">
     <div class="work-head">
       <h2 id="work-h">[work]</h2>
       <div class="tags" role="toolbar" aria-label="Filter projects">
-        <span class="on" data-f="all" tabindex="0">All</span><span data-f="bank" tabindex="0">Banking AI</span><span data-f="voice" tabindex="0">Voice</span><span data-f="agents" tabindex="0">AI agents</span>
+        <button type="button" class="on" data-f="all" aria-pressed="true">All</button><button type="button" data-f="bank" aria-pressed="false">Banking AI</button><button type="button" data-f="voice" aria-pressed="false">Voice</button><button type="button" data-f="agents" aria-pressed="false">AI agents</button>
       </div>
     </div>
 
@@ -133,11 +137,12 @@ footer { border-top: 1px solid var(--line); padding: 22px 0 40px; font-family: v
     </article>
 
     <article class="card" data-t="agents">
+      <!-- TODO: Earlyman links to a Tailscale Funnel on one Mac; it dies when that machine sleeps. Move the landing page to a permanent host later. -->
       <a class="thumb" href="https://earlyman.tail27c668.ts.net" target="_blank" rel="noopener" aria-label="Open Earlyman site"><img src="media/earlyman.jpg" alt="Earlyman home page" loading="lazy"></a>
       <div>
         <span class="label">Developer tool · Oct 2026</span>
         <h3>Earlyman</h3>
-        <p>Shows why AI coding agents fail and what they cost, per pull request, with a rule to stop the same mistake next time.</p>
+        <p>In testing: shows why AI coding agents fail and what they cost, per pull request, with a rule to stop the same mistake next time.</p>
         <div class="proof">Runs locally · prompts never stored</div>
         <a class="go" href="https://earlyman.tail27c668.ts.net" target="_blank" rel="noopener">Earlyman site -&gt;</a>
       </div>
@@ -177,12 +182,11 @@ footer { border-top: 1px solid var(--line); padding: 22px 0 40px; font-family: v
   }
 
   // chips filter the project cards
-  const chips = document.querySelectorAll('.tags span'), cardsEl = document.querySelectorAll('.card');
+  const chips = document.querySelectorAll('.tags button'), cardsEl = document.querySelectorAll('.card');
   const fade = () => { canvas.style.opacity = scrollY > innerHeight * 0.5 ? '0.18' : '0.55'; };
   addEventListener('scroll', fade, { passive: true });
-  chips.forEach(ch => ch.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); ch.click(); } }));
   chips.forEach(ch => ch.addEventListener('click', () => {
-    chips.forEach(c => c.classList.toggle('on', c === ch));
+    chips.forEach(c => { c.classList.toggle('on', c === ch); c.setAttribute('aria-pressed', String(c === ch)); });
     const f = ch.dataset.f;
     cardsEl.forEach(c => { c.hidden = f !== 'all' && !c.dataset.t.split(' ').includes(f); });
   }));
