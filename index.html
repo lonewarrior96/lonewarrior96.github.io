@@ -66,6 +66,7 @@ h2 { font-size: 14px; font-weight: normal; color: var(--accent); }
 .card .proof { font-family: var(--mono); font-size: 13px; color: var(--accent); margin-top: 14px; }
 .card .go { display: inline-block; font-family: var(--mono); font-size: 14px; margin-top: 18px; text-underline-offset: 4px; transition: opacity 300ms; }
 .card .go:hover { opacity: .7; }
+.card .go + .go { margin-left: 18px; }
 
 section.notes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; padding: 56px 0 24px; }
 section.notes p { font-size: 17px; color: var(--muted); margin-top: 10px; max-width: 34em; }
@@ -103,7 +104,7 @@ footer { border-top: 1px solid var(--line); padding: 22px 0 40px; font-family: v
     <h1>I build AI for Indian banking.</h1>
     <p>Master's in AI at NUS as an OCBC AI Scholar, then 2.5 years at OCBC Bank. Now I build compliance, fraud-check calls and agent tools for Indian lenders, from Bangalore.</p>
     <div class="links"><a href="mailto:vaibhavda@corrobo.ai">vaibhavda@corrobo.ai</a><a href="https://www.linkedin.com/in/vaibhav-d-a-v/" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/lonewarrior96" target="_blank" rel="noopener">GitHub</a><a href="/vaibhav%20data%20science%20resume.pdf" download>Resume (PDF)</a></div>
-    <p class="skills"><span>[skills]</span> Python · LLM fine-tuning (Qwen3-VL) · Document intelligence and OCR · Voice agents (Bolna) · Agent tooling and evals · AML and sanctions screening</p>
+    <p class="skills"><span>[skills]</span> Python · LLM fine-tuning (Qwen3-VL) · Document intelligence and OCR · Voice agents · Agent tooling and evals · AML and sanctions screening</p>
   </section>
 
   <section class="work" id="work" aria-labelledby="work-h">
@@ -115,13 +116,13 @@ footer { border-top: 1px solid var(--line); padding: 22px 0 40px; font-family: v
     </div>
 
     <article class="card" data-t="bank agents">
-      <a class="thumb" href="https://corrobo.ai/" target="_blank" rel="noopener" aria-label="Open corrobo.ai"><img src="media/corrobo.jpg" alt="Corrobo home page" loading="lazy"></a>
+      <a class="thumb" href="media/corrobo-demo.mp4" target="_blank" rel="noopener" aria-label="Watch the Corrobo demo (49 seconds)"><video src="media/corrobo-loop.mp4" poster="media/corrobo-frame.jpg" autoplay muted loop playsinline preload="metadata"></video></a>
       <div>
         <span class="label">Compliance AI · 2026</span>
         <h3>Corrobo</h3>
         <p>KYC documents and name screening for banks, on the bank's own hardware. It reads and checks 56 document types and screens names against its own sanctions and PEP database. An analyst signs every case. Transaction monitoring is next.</p>
         <div class="proof">Fine-tuned on Qwen3-VL 8B · 56 document types · own watchlist database</div>
-        <a class="go" href="https://corrobo.ai/" target="_blank" rel="noopener">corrobo.ai -&gt;</a>
+        <a class="go" href="https://corrobo.ai/" target="_blank" rel="noopener">corrobo.ai -&gt;</a> <a class="go" href="media/corrobo-demo.mp4" target="_blank" rel="noopener">Watch the 49 s demo -&gt;</a>
       </div>
     </article>
 
@@ -131,7 +132,7 @@ footer { border-top: 1px solid var(--line); padding: 22px 0 40px; font-family: v
         <span class="label">Voice agent · Oct 2026</span>
         <h3>Skimstone</h3>
         <p>Calls a customer to confirm a flagged payment before the money leaves, in Hindi, Hinglish or English. It never asks for an OTP and hands real victims to a person.</p>
-        <div class="proof">Live on Bolna · built for Bolna's voice-AI buildathon</div>
+        <div class="proof">Hindi, Hinglish, English · a person decides every high-risk call</div>
         <a class="go" href="https://skimstone.pages.dev" target="_blank" rel="noopener">skimstone.pages.dev -&gt;</a>
       </div>
     </article>
